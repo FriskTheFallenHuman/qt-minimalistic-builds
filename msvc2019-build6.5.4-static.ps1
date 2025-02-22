@@ -1,7 +1,7 @@
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 # Call Visual Studio Dev Tools
-& 'Launch-VsDevShell.ps1'
+& '.\Launch-VsDevShell.ps1'
 
 $version_base = "6.5"
 $version = "6.5.4"
