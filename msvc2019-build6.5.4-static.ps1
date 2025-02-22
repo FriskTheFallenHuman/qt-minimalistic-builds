@@ -18,11 +18,9 @@ $prefix_folder = $pwd.Path + "\" + $prefix_base_folder
 $build_folder = $pwd.Path + "\bld"
 
 # Download Qt sources, unpack.
-$AllProtocols = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12,Tls13'
-[System.Net.ServicePointManager]::SecurityProtocol = $AllProtocols
-
 if (!(Test-Path -Path $qt_archive_file -PathType Leaf)) {
-    try { Invoke-WebRequest -Uri $qt_sources_url -OutFile $qt_archive_file } catch { Write-Host "Failed to download the file. Error: $_" }
+    $curlCommand = "curl -L -o $qt_archive_file $qt_sources_url"
+    Invoke-Expression $curlCommand
 }
 
 if (!(Test-Path -Path $qt_src_base_folder)) {& "$tools_folder\7za.exe" x $qt_archive_file}
