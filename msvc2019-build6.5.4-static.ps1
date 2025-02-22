@@ -3,6 +3,8 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 # Call Visual Studio Dev Tools
 & '.\Launch-VsDevShell.ps1'
 
+cd $Env:GITHUB_WORKSPACE
+
 $version_base = "6.5"
 $version = "6.5.4"
 
@@ -24,6 +26,7 @@ Write-Host "	=> QT Archive File: $qt_archive_file"
 Write-Host "	=> QT Source Base Folder: $qt_src_base_folder"
 Write-Host "	=> Prefix Folder: $prefix_folder"
 Write-Host "	=> Build Folder: $build_folder"
+Write-Host " "
 
 # Download Qt sources, unpack.
 if (!(Test-Path -Path $qt_archive_file -PathType Leaf)) {
