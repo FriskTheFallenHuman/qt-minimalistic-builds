@@ -1,0 +1,24 @@
+name: Build Qt Minimal
+
+on:
+  workflow_dispatch:
+    inputs:
+      qt5:
+        description: 'Builds the Qt5 branch instead'
+        required: false
+        type: boolean
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.qt5 && 'qt5' || 'master' }}
+
+      # Runs a single command using the runners shell
+      - name: Execute the Qt build script
+        run: |
+          & '${{ github.workspace }}\path\to\your\msvc2019-build6.5.4-static.ps1'
+        shell: pwsh
