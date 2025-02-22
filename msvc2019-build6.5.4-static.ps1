@@ -17,6 +17,14 @@ $prefix_base_folder = "qt-" + $version + "-" + $type + "-msvc2022-x86_64"
 $prefix_folder = $pwd.Path + "\" + $prefix_base_folder
 $build_folder = $pwd.Path + "\bld"
 
+# Print our paths
+Write-Host "This are the paths that are we going to use"
+Write-Host "	=> 7-Zip path: $seven_zip_path"
+Write-Host "	=> QT Archive File: $qt_archive_file"
+Write-Host "	=> QT Source Base Folder: $qt_src_base_folder"
+Write-Host "	=> Prefix Folder: $prefix_folder"
+Write-Host "	=> Build Folder: $build_folder"
+
 # Download Qt sources, unpack.
 if (!(Test-Path -Path $qt_archive_file -PathType Leaf)) {
     $curlCommand = "curl -L -o $qt_archive_file $qt_sources_url"
