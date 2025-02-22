@@ -20,5 +20,5 @@ jobs:
       # Runs a single command using the runners shell
       - name: Execute the Qt build script
         run: |
-          & '${{ github.workspace }}\path\to\your\msvc2019-build6.5.4-static.ps1'
+          & '${{ github.workspace }}\msvc2019-build6.5.4-static.ps1'
         shell: pwsh
